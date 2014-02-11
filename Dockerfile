@@ -15,6 +15,7 @@ RUN /var/www/pootle/env/bin/pootle setup
 RUN /var/www/pootle/env/bin/pootle collectstatic --noinput
 RUN /var/www/pootle/env/bin/pootle assets build
 RUN grep -q '^POOTLE_ENABLE_API' ~/.pootle/pootle.conf && sed -i "s/\(POOTLE_ENABLE_API *= *\).*/\1True/" ~/.pootle/pootle.conf || echo "\nPOOTLE_ENABLE_API = True\n" >> ~/.pootle/pootle.conf
+RUN grep -q '^ALLOWED_HOSTS' ~/.pootle/pootle.conf && sed -i "s/\(ALLOWED_HOSTS *= *\).*/\1\[\"\*\", \]/" ~/.pootle/pootle.conf || echo "\nALLOWED_HOSTS = [\"*\", ]\n" >> ~/.pootle/pootle.conf
 ADD run.sh /usr/local/bin/run
 EXPOSE 8000
 CMD /bin/bash /usr/local/bin/run
