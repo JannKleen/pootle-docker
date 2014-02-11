@@ -1,5 +1,6 @@
 FROM ubuntu:13.10
 MAINTAINER Jann Kleen "jann@resmio.com"
+VOLUME ["/var/pootledb"]
 RUN apt-get -qq update
 RUN apt-get install -y python-dev python-setuptools git build-essential libxml2-dev libxslt-dev libxml2 libxslt1.1 zlib1g-dev
 RUN easy_install pip
