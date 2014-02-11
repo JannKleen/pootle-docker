@@ -9,6 +9,7 @@ RUN virtualenv /var/www/pootle/env
 RUN /var/www/pootle/env/bin/pip install Pootle
 RUN /var/www/pootle/env/bin/pip install django-tastypie==0.9.16
 RUN /var/www/pootle/env/bin/pootle init
+RUN sed -i "s/\('NAME' *: *\).*/\1'\/var\/pootledb\/pootle.db',/" ~/.pootle/pootle.conf
 RUN /var/www/pootle/env/bin/pootle setup
 RUN /var/www/pootle/env/bin/pootle collectstatic --noinput
 RUN /var/www/pootle/env/bin/pootle assets build
