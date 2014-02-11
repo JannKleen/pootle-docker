@@ -14,5 +14,5 @@ RUN /var/www/pootle/env/bin/pootle assets build
 RUN grep -q '^POOTLE_ENABLE_API' file && sed -i "s/\(POOTLE_ENABLE_API *= *\).*/\1True/" ~/.pootle/pootle.conf || echo "\nPOOTLE_ENABLE_API = True\n" >> ~/.pootle/pootle.conf
 ADD run.sh /usr/local/bin/run
 EXPOSE 8000
-CMD /usr/local/bin/run
+CMD /bin/bash /usr/local/bin/run
 
