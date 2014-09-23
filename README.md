@@ -37,7 +37,7 @@ There is a simple bootstrap script which creates the Volume Container for you, j
 After that you should start your pootle instance by running:
 
 ```
-docker run -p 80:8000 -volumes-from POOTLEDB jannkleen/pootle
+docker run -p 80:8000 --volumes-from POOTLEDB jannkleen/pootle
 ```
 
 
