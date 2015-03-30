@@ -6,8 +6,8 @@ RUN apt-get install -y python-dev python-setuptools git build-essential libxml2-
 RUN easy_install pip
 RUN pip install virtualenv
 RUN virtualenv /var/www/pootle/env
-RUN /var/www/pootle/env/bin/pip install Pootle
-RUN /var/www/pootle/env/bin/pip install django-tastypie==0.9.16
+RUN /var/www/pootle/env/bin/pip install Pootle==2.5.1.1
+RUN /var/www/pootle/env/bin/pip install django-tastypie==0.12.1
 RUN mkdir -p /var/local/pootledb
 RUN /var/www/pootle/env/bin/pootle init
 RUN sed -i "s/\('NAME' *: *\).*/\1'\/var\/local\/pootledb\/pootle.db',/" ~/.pootle/pootle.conf
